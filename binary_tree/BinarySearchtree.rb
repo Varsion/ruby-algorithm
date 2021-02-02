@@ -12,7 +12,7 @@ load 'Treenode.rb'
 
 class BinarySearchtree < Treenode
 
-	def find value
+	def search value
 		return self if self.value == value
 		if value < self.value
 			self.left.find value
@@ -21,7 +21,7 @@ class BinarySearchtree < Treenode
 		end
 	end
 
-	def max_node
+	def max
 		if self.right == nil
 			return self
 		else
@@ -29,7 +29,7 @@ class BinarySearchtree < Treenode
 		end
 	end
 
-	def min_node
+	def min
 		if self.left == nil
 			return self
 		else
@@ -53,9 +53,23 @@ class BinarySearchtree < Treenode
 		end
 	end
 
-	def delete
-		
-	end
+	def delete value
+
+		return nil if self == nil
+
+		node = self.search value
+
+		if node.left == nil
+			node = node.right
+		elsif node.right == nil
+			node = node.left
+		else
+			# 用最小右子节点替换要删除的节点 再递归删除改节点
+			temp = node
+			node = temp.right.min
+			node.delete value
+		end
+    end
 
 	private
 		def insert_left value
