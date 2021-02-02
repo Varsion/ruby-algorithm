@@ -12,17 +12,31 @@ load 'Treenode.rb'
 
 class BinarySearchtree < Treenode
 
-# 递归查找
 	def find value
 		return self if self.value == value
 		if value < self.value
-			find self.left
+			self.left.find value
 		else
-			find self.right
+			self.right.find value
 		end
 	end
 
-# 递归插入
+	def max_node
+		if self.right == nil
+			return self
+		else
+			self.right.max_node
+		end
+	end
+
+	def min_node
+		if self.left == nil
+			return self
+		else
+			self.left.max_node
+		end
+	end
+
 	def insert value
 		if value > self.value
 			if self.right == nil
