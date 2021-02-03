@@ -15,9 +15,9 @@ class BinarySearchtree < Treenode
 	def search value
 		return self if self.value == value
 		if value < self.value
-			self.left.find value
+			self.left.search value
 		else
-			self.right.find value
+			self.right.search value
 		end
 	end
 
@@ -25,7 +25,7 @@ class BinarySearchtree < Treenode
 		if self.right == nil
 			return self
 		else
-			self.right.max_node
+			self.right.max
 		end
 	end
 
@@ -33,7 +33,7 @@ class BinarySearchtree < Treenode
 		if self.left == nil
 			return self
 		else
-			self.left.max_node
+			self.left.min
 		end
 	end
 
@@ -80,3 +80,12 @@ class BinarySearchtree < Treenode
 			@right = BinarySearchtree.new(value)
 		end
 end
+
+root = BinarySearchtree.new(20)
+
+root.insert(11)
+root.insert(33)
+
+
+node = root.search(11)
+puts node
