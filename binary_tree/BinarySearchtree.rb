@@ -85,7 +85,3 @@ root = BinarySearchtree.new(20)
 
 root.insert(11)
 root.insert(33)
-
-
-node = root.search(11)
-puts node
