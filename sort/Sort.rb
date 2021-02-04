@@ -1,3 +1,8 @@
+=begin
+	- bubble sort
+	- insert sort
+	- select sort
+=end
 module Sort
 	# bubble sort
 	# Time Complexity: О(n^2)
@@ -52,6 +57,7 @@ module Sort
       	end
       	container
 	end
+
 end
 
 # Test
