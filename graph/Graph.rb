@@ -1,14 +1,13 @@
-class Graph
-	attr_accessor :container, :count
+# Adjacency List
+module Graph
 
-	def initialize(count)
-	  @count = count
-	end
-
-
-	# Breadth First Search
-	# 广度优先搜索
-	def bfs start, end
+	# 搜索从s 到 t 的最短路径
+	def self.bfs s, t
 		
 	end
+	
+	def self.dfs 
+		
+	end
+	
 end
