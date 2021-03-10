@@ -43,9 +43,9 @@ class Heap
 				max = y
 				max = y*2 if y*2 <= x && container[y] < container[y*2]
 				max = y*2+1 if y*2+1 <= n && container[max] < container[y*2+1]
-				break if max == i
+				break if max == y
 				_swap(y,max)
-				i = max
+				y = max
 			end
 		end
 	# 交换下标数据位置

@@ -23,10 +23,4 @@ module Match
 	def self.rk s, g
 		
 	end
-
-	# Boyer-Moore
-	def self.bm s, g
-		
-	end
-
 end
