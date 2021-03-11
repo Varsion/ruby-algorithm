@@ -1,79 +1,8 @@
-# module Bm
-# 	SIZE = 256
-# 	# String a 表示主串 
-# 	# String b 表示 模式串
-# 	def self.Bm a, b
-# 		al = a.length
-# 		bl = b.length
-
-# 		# 构建坏字符哈希表
-# 		bc = self.generateBC(b, bl)
-
-# 		suffix, prefix = self.generateGS(b, bl)
-# 		i = 0
-# 		while i <= al - bl do
-# 			j = bl - 1
-# 			while j >= 0 do 
-# 				break if a[i+j] != b[j]
-# 				--j
-# 			end
-# 			return i if j < 0 # 匹配成功则返回第一个匹配的字符的位置
-# 			x = j - bc[a[i+j].bytes]
-# 			y = 0
-# 			y = self.moveByGS(j, m, suffix, prefix) if j < m - 1
-# 			i = i + self.max(x, y)
-# 		end
-# 		return -1
-# 	end
-
-# 	# 构建坏字符哈希表
-# 	def self.generateBC b, bl
-# 		con = Array.new(SIZE, -1)
-# 		(0...bl).each do |i|
-# 			con[i] = b[i].bytes
-# 		end
-# 		con
-# 	end
-
-# 	def self.generateGS b, bl
-# 		suffix = Array.new(bl, -1)
-# 		prefix = Array.new(bl, false)
-# 		(0...bl-1).each do |i|
-# 			j = i
-# 			k = 0
-# 			while j >= 0 && b[j] == b[bl-1-k] do
-# 				j--
-# 				k++
-# 				suffix[k] = j+1
-# 			end
-# 			prefix[k] == true if j == -1
-# 		end
-# 		return suffix, prefix
-# 	end
-
-# 	def self.moveByGS j, m, suffix, prefix
-# 		k = m - 1 - j
-# 		return j - suffix[k] + 1 if suffix[k] != -1
-# 		r = j + 2
-# 		while r <= m - 1
-# 			return r if prefix[m-r]
-# 		end
-# 		return m
-# 	end
-
-# 	def self.max m, n
-# 		return m if m > n
-# 		return n if n > m
-# 	end
-
-# end
-
-
-class Bm
+module Bm
 	SIZE = 256
 	# String a 表示主串 
 	# String b 表示 模式串
-	def Bm a, b
+	def self.bm a, b
 		al = a.length
 		bl = b.length
 
@@ -97,24 +26,23 @@ class Bm
 		return -1
 	end
 
-private
 	# 构建坏字符哈希表
-	def generateBC b, bl
+	def self.generateBC b, bl
 		con = Array.new(SIZE, -1)
 		(0...bl).each do |i|
-			acc = b[i].bytes
-			con[] = i
+			acc = b[i].bytes[0]
+			con[acc] = i
 		end
 		con
 	end
 
-	def generateGS b, bl
+	def self.generateGS b, bl
 		suffix = Array.new(bl, -1)
 		prefix = Array.new(bl, false)
 		(0...bl-1).each do |i|
 			j = i
 			k = 0
-			while j >= 0 && b[j] == b[bl-1-k] do
+			while j >= 0 && b[j] == b[bl-1-k]
 				j--
 				k++
 				suffix[k] = j+1
@@ -124,7 +52,7 @@ private
 		return suffix, prefix
 	end
 
-	def moveByGS j, m, suffix, prefix
+	def self.moveByGS j, m, suffix, prefix
 		k = m - 1 - j
 		return j - suffix[k] + 1 if suffix[k] != -1
 		r = j + 2
@@ -140,8 +68,3 @@ private
 	end
 
 end
-
-
-res = Bm.new
-
-puts res.Bm('123','1')
