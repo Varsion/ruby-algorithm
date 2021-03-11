@@ -2,7 +2,7 @@ module Bm
 	SIZE = 256
 	# String a 表示主串 
 	# String b 表示 模式串
-	def self.bm a, b
+	def self.self a, b
 		al = a.length
 		bl = b.length
 
@@ -15,12 +15,12 @@ module Bm
 			j = bl - 1
 			while j >= 0
 				break if a[i+j] != b[j]
-				--j
+				j-=1
 			end
 			return i if j < 0 # 匹配成功则返回第一个匹配的字符的位置
-			x = j - bc[a[i+j].bytes]
+			x = j - bc[a[i+j].bytes[0]]
 			y = 0
-			y = moveByGS(j, m, suffix, prefix) if j < m - 1
+			y = moveByGS(j, bl, suffix, prefix) if j < bl - 1
 			i = i + max(x, y)
 		end
 		return -1
@@ -43,8 +43,8 @@ module Bm
 			j = i
 			k = 0
 			while j >= 0 && b[j] == b[bl-1-k]
-				j--
-				k++
+				j-=1
+				k+=1
 				suffix[k] = j+1
 			end
 			prefix[k] == true if j == -1
