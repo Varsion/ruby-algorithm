@@ -14,7 +14,7 @@ class Heap
 
 	def instert value
 		return -1 if count >= capacity
-		++@count
+		@count+=1
 		@container[count] = value
 		_build
 	end
@@ -23,7 +23,7 @@ class Heap
 	def removeTop
 		return -1 if count == 0
 		@container[1] = @container[count]
-		--@count
+		@count-=1
 		_heapify(count, 1)
 	end
 
@@ -37,7 +37,7 @@ class Heap
 		k = count
 		while k > 1
 			_swap(1, k)
-			--k
+			k-=1
 			_heapify(k, 1)
 		end
 	end

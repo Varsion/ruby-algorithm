@@ -18,7 +18,7 @@ class Heap
 
 	def insert value
 		return -1 if count >= capacity
-		++@count
+		@count+=1
 		@container[count] = value
 		i = @count
 		# 堆化 自底向上堆化
@@ -32,8 +32,7 @@ class Heap
 	def removeTop
 		return -1 if count == 0
 		@container[1] = @container[count]
-		--@count
-		_heapify(count, 1)
+		@count-=1		_heapify(count, 1)
 	end
 
 	private

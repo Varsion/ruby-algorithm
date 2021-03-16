@@ -1,4 +1,4 @@
-class Kmp
+module Kmp
 	def self.self a, b
 		al = a.length
 		bl = b.length
