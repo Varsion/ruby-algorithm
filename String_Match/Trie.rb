@@ -15,9 +15,8 @@ class Trienode
 
 	def initialize data
 	  @data = data
-	  #@children[26] = Trienode.new
+	  @children = Array.new(26,nil)
 	end
 end
-
 
 T = Trienode.new(1)
