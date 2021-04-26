@@ -6,6 +6,5 @@
 
 一些相关的详细笔记会在我的博客更新 [充鸭的手札](https://blog.varsion.cn)
 
-You can 💬 、👁‍🗨 、💓 or 🌟,but 🤺.
 
 Thanks for you Star and follows!

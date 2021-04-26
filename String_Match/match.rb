@@ -18,9 +18,9 @@ module Match
 		return false
 	end
 
-	# Rabin-Karp 
+	# Rabin-Karp
 	# 将字符串转换为哈希来进行匹配 在匹配过程中 效率会高于直接匹配
 	def self.rk s, g
-		
+	
 	end
 end
