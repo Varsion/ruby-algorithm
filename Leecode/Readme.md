@@ -1,5 +1,8 @@
-# 来自于Leecode的一些题目的练习
+# My exercise codes on Leecode
 
-​	[Leecode](https://leetcode-cn.com/)上一些题目的Ruby实现
+​	
+    Ruby implementation of some topics on [Leecode](https://leetcode-cn.com/),
 
-​	我自己在写的时候记录下的一些代码，会偶尔对一部分代码进行优化
+​    Some codes when I personally practice,
+
+    Occasionally I will make some optimizations.

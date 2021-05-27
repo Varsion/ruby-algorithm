@@ -2,6 +2,8 @@
 	- bubble sort
 	- insert sort
 	- select sort
+	- merge sort
+	- quick sort
 =end
 module Sort
 	# bubble sort
@@ -58,8 +60,14 @@ module Sort
       	container
 	end
 
+	# merge sort
 	def self.merge_sort container
 		# TODO: 实现归并排序
+		
+	end
+
+	def self.qucik_sort container
+		# TODO: 实现快速排序
 	end
 
 end
