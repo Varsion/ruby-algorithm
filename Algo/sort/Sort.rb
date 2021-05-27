@@ -58,18 +58,16 @@ module Sort
       	container
 	end
 
+	def self.merge_sort container
+		# TODO: 实现归并排序
+	end
+
 end
 
 # Test
-Sort.bubble_sort([1,3,2,7,6]).each do |i|
-	puts i
-end
+p Sort.bubble_sort([1,3,2,7,6])
 puts "-----"
-Sort.insert_sort([1,3,2,7,6]).each do |i|
-	puts i
-end
+p Sort.insert_sort([1,3,2,7,6])
 puts "-----"
-Sort.select_sort([1,3,2,7,6]).each do |i|
-	puts i
-end
+p Sort.select_sort([1,3,2,7,6])
 puts "-----"
