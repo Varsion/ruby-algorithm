@@ -8,77 +8,74 @@
 # 	end
 # end
 
-load 'Treenode.rb'
+load "Treenode.rb"
 
 class BinarySearchtree < Treenode
-
-	def search value
-		return self if self.value == value
-		if value < self.value
-			self.left.search value
-		else
-			self.right.search value
-		end
-	end
-
-	def max
-		if self.right == nil
-			return self
-		else
-			self.right.max
-		end
-	end
-
-	def min
-		if self.left == nil
-			return self
-		else
-			self.left.min
-		end
-	end
-
-	def insert value
-		if value > self.value
-			if self.right == nil
-				insert_right value
-			else
-				self.right.insert value
-			end
-		else
-			if self.left == nil
-				insert_left value
-			else
-				self.left.insert value
-			end
-		end
-	end
-
-	def delete value
-
-		return nil if self == nil
-
-		node = self.search value
-
-		if node.left == nil
-			node = node.right
-		elsif node.right == nil
-			node = node.left
-		else
-			# 用最小右子节点替换要删除的节点 再递归删除改节点
-			temp = node
-			node = temp.right.min
-			node.delete value
-		end
+  def search value
+    return self if self.value == value
+    if value < self.value
+      left.search value
+    else
+      right.search value
     end
+  end
 
-	private
-		def insert_left value
-			@left = BinarySearchtree.new(value)
-		end
+  def max
+    if right.nil?
+      self
+    else
+      right.max
+    end
+  end
 
-		def insert_right value
-			@right = BinarySearchtree.new(value)
-		end
+  def min
+    if left.nil?
+      self
+    else
+      left.min
+    end
+  end
+
+  def insert value
+    if value > self.value
+      if right.nil?
+        insert_right value
+      else
+        right.insert value
+      end
+    elsif left.nil?
+      insert_left value
+    else
+      left.insert value
+    end
+  end
+
+  def delete value
+    return nil if nil?
+
+    node = search value
+
+    if node.left.nil?
+      node = node.right
+    elsif node.right.nil?
+      node = node.left
+    else
+      # 用最小右子节点替换要删除的节点 再递归删除改节点
+      temp = node
+      node = temp.right.min
+      node.delete value
+    end
+  end
+
+  private
+
+  def insert_left value
+    @left = BinarySearchtree.new(value)
+  end
+
+  def insert_right value
+    @right = BinarySearchtree.new(value)
+  end
 end
 
 root = BinarySearchtree.new(20)

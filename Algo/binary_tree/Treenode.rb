@@ -1,11 +1,9 @@
 class Treenode
-	attr_accessor :left, :right
-	attr_reader :value
+  attr_accessor :left, :right
+  attr_reader :value
 
-	def initialize(value)
-	  @value = value
-	  @left, @right = nil, nil
-	end
+  def initialize(value)
+    @value = value
+    @left, @right = nil, nil
+  end
 end
-
-

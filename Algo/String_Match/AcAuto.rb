@@ -1,3 +1,2 @@
 class AcAuto
-
 end
